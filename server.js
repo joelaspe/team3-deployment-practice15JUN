@@ -11,9 +11,9 @@ const pool = new Pool ( {
 
 app.use(express.static('public'));
 
-app.get ('/todos', async (req, res) => ({
+app.get('/todos', async (req, res) => {
 	try {
-	  const result = await pool.query('SELECT * from todos;');
+	  const result = await pool.query('SELECT * from todos');
 	  res.json(result.rows).status(200);
 	} catch (error) {
 	  res.json(error.message).status(500);
